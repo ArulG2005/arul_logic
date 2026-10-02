@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- INSERT GOOGLE SEARCH CONSOLE META TAG HERE -->
+
+  <title>Arul Logic — Logic-Driven Mobile App Development</title>
+  <meta name="description" content="Arul Logic is a mobile app development studio from Tamil Nadu, India, building fast, reliable Android apps on clean architecture and flawless logic." />
+  <meta name="author" content="ARUL G" />
+  <meta name="theme-color" content="#0a0a0f" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arul Logic — Logic-Driven Mobile Experiences" />
+  <meta property="og:description" content="Clean architecture. Flawless logic. Mobile apps built to last." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3E%7B%7D%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#07070b', 900: '#0a0a0f', 800: '#111118', 700: '#18181f', 600: '#24242d' },
+            accent: { DEFAULT: '#22d3ee', soft: '#67e8f9', deep: '#0891b2' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { background-color: #0a0a0f; }
+
+    /* Subtle grid background */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    }
+
+    /* Accent glow */
+    .glow { box-shadow: 0 0 0 1px rgba(34,211,238,.35), 0 10px 40px -10px rgba(34,211,238,.55); }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(90deg, #ffffff 0%, #a5f3fc 50%, #22d3ee 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    /* Blinking cursor */
+    .cursor::after { content: '_'; color: #22d3ee; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* App card gradient border on hover */
+    .card { position: relative; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+    .card:hover { transform: translateY(-6px); border-color: rgba(34,211,238,.45); box-shadow: 0 20px 50px -20px rgba(34,211,238,.35); }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .cursor::after { animation: none; }
+      .card, .card:hover { transform: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-300 antialiased selection:bg-accent/30 selection:text-white">
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 group" aria-label="Arul Logic home">
+        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 border border-accent/30 font-mono text-sm font-bold text-accent group-hover:bg-accent/20 transition">{ }</span>
+        <span class="text-lg font-bold tracking-tight text-white">Arul<span class="text-accent">Logic</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition">Home</a></li>
+        <li><a href="#apps" class="nav-link text-gray-400 hover:text-white transition">Our Apps</a></li>
+        <li><a href="#about" class="nav-link text-gray-400 hover:text-white transition">About</a></li>
+        <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition">Contact</a></li>
+      </ul>
+      <a href="#apps" class="hidden md:inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-accent-soft hover:-translate-y-0.5 transition">
+        View Apps
+      </a>
+
+      <!-- Mobile toggle -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="iconOpen" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="iconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-ink-900/95 backdrop-blur-xl">
+      <ul class="px-4 py-4 space-y-1 text-base font-medium">
+        <li><a href="#home" class="mobile-link block rounded-lg px-3 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white">Home</a></li>
+        <li><a href="#apps" class="mobile-link block rounded-lg px-3 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white">Our Apps</a></li>
+        <li><a href="#about" class="mobile-link block rounded-lg px-3 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white">About</a></li>
+        <li><a href="#contact" class="mobile-link block rounded-lg px-3 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="absolute inset-0 bg-grid pointer-events-none"></div>
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] max-w-full rounded-full bg-accent/20 blur-[120px] pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/5 px-3 py-1 font-mono text-xs text-accent mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            Now shipping on Google Play
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+            Building <span class="text-gradient">Logic-Driven</span><br class="hidden sm:block" /> Mobile Experiences
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Arul Logic crafts fast, reliable, and beautifully simple Android apps — engineered on
+            <span class="text-gray-200 font-medium">clean architecture</span>, tested logic, and code that scales.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <!-- Replace href with your Google Play developer page URL -->
+            <a href="https://play.google.com/store/apps/developer?id=Arul+Logic" target="_blank" rel="noopener"
+               class="glow inline-flex items-center justify-center gap-3 rounded-xl bg-accent px-6 py-3.5 font-semibold text-ink-900 hover:bg-accent-soft hover:-translate-y-0.5 transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l.1.1L13.8 12v-.2L3.7 1.7l-.1.1zm13.6 13.6l-3.4-3.4v-.2l3.4-3.4.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.3h-.1zm-.1.1L13.8 12 3.6 22.2c.4.4 1 .4 1.7.1l11.8-6.8M17.1 8.5L5.3 1.7c-.7-.4-1.3-.3-1.7.1L13.8 12l3.3-3.5z"/></svg>
+              Explore on Play Store
+            </a>
+            <a href="#apps" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3.5 font-semibold text-white hover:border-accent/50 hover:bg-white/[0.06] hover:-translate-y-0.5 transition">
+              See Our Apps
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Code window -->
+        <div class="lg:col-span-5 reveal">
+          <div class="rounded-2xl border border-white/10 bg-ink-800/80 backdrop-blur shadow-2xl shadow-black/50 overflow-hidden">
+            <div class="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+              <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+              <span class="ml-3 font-mono text-xs text-gray-500">ArulLogic.kt</span>
+            </div>
+            <pre class="p-5 font-mono text-[13px] leading-6 overflow-x-auto"><code><span class="text-purple-400">class</span> <span class="text-yellow-300">ArulLogic</span> {
+  <span class="text-purple-400">val</span> founder = <span class="text-green-400">"ARUL G"</span>
+  <span class="text-purple-400">val</span> base = <span class="text-green-400">"Tamil Nadu, India"</span>
+
+  <span class="text-purple-400">fun</span> <span class="text-accent">build</span>(idea: <span class="text-yellow-300">Idea</span>): <span class="text-yellow-300">App</span> {
+    <span class="text-gray-500">// logic first, always</span>
+    <span class="text-purple-400">return</span> idea
+      .<span class="text-accent">architect</span>(<span class="text-green-400">Clean</span>)
+      .<span class="text-accent">test</span>()
+      .<span class="text-accent">ship</span>()
+  }
+}<span class="cursor"></span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-white/10 bg-white/10 reveal">
+          <div class="bg-ink-900 p-6 text-center"><div class="text-2xl sm:text-3xl font-bold text-white">2+</div><div class="mt-1 font-mono text-xs text-gray-500 uppercase tracking-wider">Apps Live</div></div>
+          <div class="bg-ink-900 p-6 text-center"><div class="text-2xl sm:text-3xl font-bold text-white">100%</div><div class="mt-1 font-mono text-xs text-gray-500 uppercase tracking-wider">Native Android</div></div>
+          <div class="bg-ink-900 p-6 text-center"><div class="text-2xl sm:text-3xl font-bold text-white">0</div><div class="mt-1 font-mono text-xs text-gray-500 uppercase tracking-wider">Data Sold</div></div>
+          <div class="bg-ink-900 p-6 text-center"><div class="text-2xl sm:text-3xl font-bold text-accent">∞</div><div class="mt-1 font-mono text-xs text-gray-500 uppercase tracking-wider">Logic</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPS ============ -->
+    <section id="apps" class="py-20 sm:py-28 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="font-mono text-sm text-accent">// our_apps</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">Apps built with intention</h2>
+          <p class="mt-4 text-gray-400">Every app we ship solves one problem exceptionally well — no bloat, no dark patterns, just clean logic.</p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          <!-- App Card: Agenda -->
+          <article class="card reveal group rounded-2xl border border-white/10 bg-ink-800/60 p-6 sm:p-8 flex flex-col">
+            <div class="flex items-start gap-4">
+              <!-- Replace with <img src="agenda-icon.png" class="h-16 w-16 rounded-2xl" alt="Agenda icon"> -->
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-cyan-500/20">
+                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-white group-hover:text-accent transition">Agenda – To-Do &amp; Task Manager</h3>
+                <p class="mt-1 font-mono text-xs text-gray-500">Productivity · Android</p>
+              </div>
+            </div>
+            <p class="mt-6 text-gray-400 leading-relaxed flex-1">
+              A fast, distraction-free task manager to plan your day, organise to-dos, and stay on top of what matters. Simple to start, powerful when you need it.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2 font-mono text-xs">
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Smart Lists</li>
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Reminders</li>
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Offline-first</li>
+            </ul>
+            <!-- Replace href with your Agenda Play Store URL -->
+            <a href="#" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center gap-3 self-start rounded-xl border border-white/15 bg-black px-5 py-2.5 text-white hover:border-accent hover:shadow-[0_0_24px_-6px_rgba(34,211,238,.6)] hover:-translate-y-0.5 transition">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l.1.1L13.8 12v-.2L3.7 1.7z"/><path fill="#ffce00" d="M17.2 15.4l-3.4-3.4v-.2l3.4-3.4.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.3z"/><path fill="#ff3a44" d="M17.1 15.5L13.8 12 3.6 22.2c.4.4 1 .4 1.7.1l11.8-6.8"/><path fill="#00f076" d="M17.1 8.5L5.3 1.7c-.7-.4-1.3-.3-1.7.1L13.8 12z"/></svg>
+              <span class="text-left leading-tight"><span class="block text-[10px] uppercase tracking-wide text-gray-400">Get it on</span><span class="block text-base font-semibold">Google Play</span></span>
+            </a>
+          </article>
+
+          <!-- App Card: Mom Says -->
+          <article class="card reveal group rounded-2xl border border-white/10 bg-ink-800/60 p-6 sm:p-8 flex flex-col">
+            <div class="flex items-start gap-4">
+              <!-- Replace with <img src="momsays-icon.png" class="h-16 w-16 rounded-2xl" alt="Mom Says icon"> -->
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-400 to-violet-600 shadow-lg shadow-pink-500/20">
+                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.4-4 8-9 8a9.9 9.9 0 01-4.3-.9L3 20l1.4-3.7A7.4 7.4 0 013 12c0-4.4 4-8 9-8s9 3.6 9 8z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-white group-hover:text-accent transition">Mom Says</h3>
+                <p class="mt-1 font-mono text-xs text-gray-500">Lifestyle · Android</p>
+              </div>
+            </div>
+            <p class="mt-6 text-gray-400 leading-relaxed flex-1">
+              Never forget the little things that matter. Mom Says helps you capture reminders, advice, and to-dos from the people you love — and actually follow through.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2 font-mono text-xs">
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Family</li>
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Reminders</li>
+              <li class="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-gray-400">Lightweight</li>
+            </ul>
+            <!-- Replace href with your Mom Says Play Store URL -->
+            <a href="#" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center gap-3 self-start rounded-xl border border-white/15 bg-black px-5 py-2.5 text-white hover:border-accent hover:shadow-[0_0_24px_-6px_rgba(34,211,238,.6)] hover:-translate-y-0.5 transition">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l.1.1L13.8 12v-.2L3.7 1.7z"/><path fill="#ffce00" d="M17.2 15.4l-3.4-3.4v-.2l3.4-3.4.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.3z"/><path fill="#ff3a44" d="M17.1 15.5L13.8 12 3.6 22.2c.4.4 1 .4 1.7.1l11.8-6.8"/><path fill="#00f076" d="M17.1 8.5L5.3 1.7c-.7-.4-1.3-.3-1.7.1L13.8 12z"/></svg>
+              <span class="text-left leading-tight"><span class="block text-[10px] uppercase tracking-wide text-gray-400">Get it on</span><span class="block text-base font-semibold">Google Play</span></span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="py-20 sm:py-28 border-t border-white/5 bg-ink-950">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal">
+          <p class="font-mono text-sm text-accent">// about_us</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">The <span class="text-accent">Logic First</span> philosophy</h2>
+          <p class="mt-6 text-gray-400 leading-relaxed">
+            Great apps aren't built on flashy features — they're built on <span class="text-gray-200">flawless logic</span> and <span class="text-gray-200">clean code</span>. At Arul Logic, every screen starts as a well-reasoned problem, every feature is backed by solid architecture, and every release is tested before it reaches your phone.
+          </p>
+          <p class="mt-4 text-gray-400 leading-relaxed">
+            Founded by <span class="text-white font-semibold">ARUL G</span>, Arul Logic is an independent studio based in Tamil Nadu, India, focused on building mobile apps that are fast, private, and a genuine pleasure to use.
+          </p>
+          <div class="mt-8 flex items-center gap-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent to-blue-600 font-bold text-ink-900">AG</div>
+            <div>
+              <div class="font-semibold text-white">ARUL G</div>
+              <div class="font-mono text-xs text-gray-500">Founder &amp; Lead Developer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="card reveal rounded-2xl border border-white/10 bg-ink-800/60 p-6">
+            <div class="font-mono text-accent text-sm">01</div>
+            <h3 class="mt-3 font-semibold text-white">Clean Architecture</h3>
+            <p class="mt-2 text-sm text-gray-400">Layered, testable, maintainable codebases that grow without breaking.</p>
+          </div>
+          <div class="card reveal rounded-2xl border border-white/10 bg-ink-800/60 p-6">
+            <div class="font-mono text-accent text-sm">02</div>
+            <h3 class="mt-3 font-semibold text-white">Performance</h3>
+            <p class="mt-2 text-sm text-gray-400">Lightweight apps that launch fast and respect your battery.</p>
+          </div>
+          <div class="card reveal rounded-2xl border border-white/10 bg-ink-800/60 p-6">
+            <div class="font-mono text-accent text-sm">03</div>
+            <h3 class="mt-3 font-semibold text-white">Privacy by Design</h3>
+            <p class="mt-2 text-sm text-gray-400">Minimal permissions, and we never sell your data.</p>
+          </div>
+          <div class="card reveal rounded-2xl border border-white/10 bg-ink-800/60 p-6">
+            <div class="font-mono text-accent text-sm">04</div>
+            <h3 class="mt-3 font-semibold text-white">Thoughtful UX</h3>
+            <p class="mt-2 text-sm text-gray-400">Intuitive interfaces where every tap has a reason.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT CTA ============ -->
+    <section class="py-20 sm:py-24 border-t border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal relative overflow-hidden rounded-3xl border border-accent/20 bg-gradient-to-br from-ink-800 to-ink-900 p-8 sm:p-12 text-center">
+          <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-accent/20 blur-3xl pointer-events-none"></div>
+          <h2 class="relative text-2xl sm:text-3xl font-bold text-white">Have feedback or a question?</h2>
+          <p class="relative mt-3 text-gray-400">We read every message. Reach out anytime.</p>
+          <a href="mailto:mailtogarul@gmail.com" class="relative mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-semibold text-ink-900 hover:bg-accent-soft hover:-translate-y-0.5 transition glow break-all">
+            <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            mailtogarul@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="contact" class="border-t border-white/5 bg-ink-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <a href="#home" class="flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 border border-accent/30 font-mono text-sm font-bold text-accent">{ }</span>
+          <span class="text-lg font-bold tracking-tight text-white">Arul<span class="text-accent">Logic</span></span>
+        </a>
+        <p class="mt-4 max-w-sm text-sm text-gray-500 leading-relaxed">
+          Logic-driven mobile app development. Clean architecture, flawless logic, apps built to last.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-gray-400">Contact</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:mailtogarul@gmail.com" class="text-gray-400 hover:text-accent transition break-all">mailtogarul@gmail.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11a7 7 0 1114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <address class="not-italic text-gray-400 leading-relaxed">
+              <span class="block text-gray-300 font-medium">ARUL G</span>
+              1/33 B, Sanjeevipuram, Minnathampatti,<br />
+              Kamalapuram, Thottiyam,<br />
+              Tiruchirappalli – 621215,<br />
+              Tamil Nadu, India
+            </address>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-gray-400">Legal</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <!-- Replace with real URLs, e.g. privacy-policy.html -->
+          <li><a href="#" class="text-gray-400 hover:text-accent transition">Privacy Policy</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-accent transition">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+        <p>&copy; <span id="year">2026</span> Arul Logic. All rights reserved.</p>
+        <p class="font-mono">Crafted with <span class="text-accent">logic</span> by ARUL G · Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      const scrolled = window.scrollY > 10;
+      navbar.classList.toggle('bg-ink-900/80', scrolled);
+      navbar.classList.toggle('backdrop-blur-xl', scrolled);
+      navbar.classList.toggle('border-b', scrolled);
+      navbar.classList.toggle('border-white/5', scrolled);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+    const setMenu = (open) => {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      if (open) navbar.classList.add('bg-ink-900/80', 'backdrop-blur-xl');
+      else onScroll();
+    };
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Smooth scroll with navbar offset
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href');
+        if (id.length < 2) return; // ignore placeholder "#" links
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top, behavior: 'smooth' });
+        history.replaceState(null, '', id);
+      });
+    });
+
+    // Highlight active nav link
+    const sections = ['home', 'apps', 'about', 'contact'].map(id => document.getElementById(id));
+    const navLinks = document.querySelectorAll('.nav-link');
+    const highlight = () => {
+      let current = 'home';
+      sections.forEach(s => { if (s.getBoundingClientRect().top <= 120) current = s.id; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = 'contact';
+      navLinks.forEach(a => {
+        const active = a.getAttribute('href') === '#' + current;
+        a.classList.toggle('text-white', active);
+        a.classList.toggle('text-gray-400', !active);
+      });
+    };
+    window.addEventListener('scroll', highlight, { passive: true });
+    highlight();
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
