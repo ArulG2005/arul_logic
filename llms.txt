@@ -1,0 +1,21 @@
+# ARUL LOGIC
+
+> ARUL LOGIC is an independent Android app studio from Tiruchirappalli, Tamil Nadu, India, founded by ARUL G. It makes simple, private apps for learning, focus, productivity and web developers. Slogan: Learn · Dream · Build.
+
+All apps are on Google Play: https://play.google.com/store/apps/dev?id=7152012900864371035
+
+## Apps
+- [Webnix: Web DevTools Browser](https://arulg.tech/webnix/): an Android browser with full web developer tools (inspect element, JavaScript console, network requests, Core Web Vitals, SEO audits, API mocking). No PC needed. More detail: https://arulg.tech/webnix/llms.txt
+- [Mom Says: Reminder & Focus](https://play.google.com/store/apps/details?id=com.logicfirst.momsays): daily reminders, streaks and a gentle app blocker with a mother's voice, in English, Tamil, Hindi, Telugu, Malayalam and Kannada.
+- [Numerix: Math Challenges](https://play.google.com/store/apps/details?id=com.logicfirst.numerix): fun offline math challenges to train your brain.
+- [Agenda: To-Do & Task Manager](https://play.google.com/store/apps/details?id=com.logicfirst.agenda): a fast, distraction-free task manager.
+- [GradeMap: CGPA Calculator](https://play.google.com/store/apps/details?id=com.logicfirst.grademap): calculate CGPA and track grades.
+- [ATS Score: Offline Tracker](https://play.google.com/store/apps/details?id=com.logicfirst.atsscore): check how a resume scores with applicant tracking systems.
+- [Math Talk](https://play.google.com/store/apps/details?id=com.logicfirst.mathtalk): a talking calculator.
+- [FitCalc](https://play.google.com/store/apps/details?id=com.logicfirst.fitcalc): health calculators such as BMI.
+- [LockMate](https://play.google.com/store/apps/details?id=com.logicfirst.lockmate): lock apps to keep them private.
+- [Torchly](https://play.google.com/store/apps/details?id=com.logicfirst.torchly): a simple flashlight.
+
+## Contact
+- Email: mailtogarul@gmail.com
+- Website: https://arulg.tech/

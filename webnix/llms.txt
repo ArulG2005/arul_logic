@@ -1,0 +1,30 @@
+# Webnix
+
+> Webnix is a free Android web browser with full web developer tools built in. It lets developers inspect, debug and audit any website directly on an Android phone, with no computer, USB cable or remote debugging.
+
+Webnix is made for web developers, front-end engineers, QA testers, SEO specialists and students. It is available on Google Play (package com.arullogic.webnix) and needs Android 7.0 or later. It has no account, ads, analytics or trackers, and all data stays on the device.
+
+## Features
+- Elements: inspect element on mobile, with a live DOM tree, tap-to-inspect picker, styles, computed CSS, box model and accessibility info, and live HTML/CSS editing. Search by text, CSS selector or XPath.
+- Console: logs, warnings and errors with source and stack trace; run JavaScript on the page with history and $0.
+- Sources: all scripts and stylesheets, pretty print, search across files, source maps, snippets, view page source.
+- Network: every request with status, size, timing and waterfall; headers, payload, preview, response (JSON viewer) and timing; WebSocket messages; HAR export.
+- Performance: Core Web Vitals (LCP, INP, CLS, FCP, TTFB, TBT), navigation timing, FPS and memory; export as HTML, JSON or text.
+- Application: cookies, local storage, session storage, IndexedDB, cache storage, service workers and web app manifest.
+- Audit: SEO, accessibility, performance, security and best-practice checks with evidence; technology detection; HTML report export.
+- Overrides: mock API responses, replace JS/CSS files, redirect or block requests, add delays or simulate errors inside the app, with no proxy, VPN or certificate.
+- Phone-friendly layout: DevTools docked at the bottom or side, floating window or full screen; device emulation (user agent, viewport width, desktop mode, text size, force dark); light and dark themes; one-tap bug reports.
+
+## Common questions it answers
+- How to inspect element on Android without a PC
+- How to see the JavaScript console on a phone
+- How to view network requests or export a HAR file on Android
+- How to view page source on mobile
+- How to check Core Web Vitals on a phone
+- How to mock an API response on Android without a proxy
+- How to open the desktop version of a website on Android
+
+## Links
+- Website: https://arulg.tech/webnix/
+- Google Play: https://play.google.com/store/apps/details?id=com.arullogic.webnix
+- Privacy policy: https://arulg.tech/webnix/privacy.html

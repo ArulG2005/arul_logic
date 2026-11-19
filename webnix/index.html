@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webnix: Web DevTools Browser for Android (Inspect Element on Mobile)</title>
+<meta name="description" content="Webnix is a free Android browser with full web developer tools: inspect element, JavaScript console, network requests, Core Web Vitals, SEO audits and API mocking. No PC needed.">
+<link rel="canonical" href="https://arulg.tech/webnix/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="theme-color" content="#0A1224">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Webnix: Web DevTools Browser for Android">
+<meta property="og:description" content="Inspect element, console, network, performance and SEO audits for any website, right on your phone.">
+<meta property="og:image" content="https://arulg.tech/webnix/og-image.png">
+<meta property="og:url" content="https://arulg.tech/webnix/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://arulg.tech/webnix/#app",
+      "name": "Webnix",
+      "alternateName": "Webnix: Web DevTools Browser",
+      "description": "An Android web browser with full developer tools built in: Elements inspector, JavaScript console, Network panel with JSON viewer and HAR export, Core Web Vitals, SEO and accessibility audits, storage viewer and API response overrides. Works on the phone with no computer or USB debugging.",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Web developer tools",
+      "operatingSystem": "Android 7.0 or later",
+      "url": "https://arulg.tech/webnix/",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.arullogic.webnix",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.arullogic.webnix",
+      "image": "https://arulg.tech/webnix/icon-512.png",
+      "screenshot": ["https://arulg.tech/webnix/img/01.jpg","https://arulg.tech/webnix/img/02.jpg","https://arulg.tech/webnix/img/03.jpg","https://arulg.tech/webnix/img/05.jpg","https://arulg.tech/webnix/img/06.jpg"],
+      "softwareVersion": "1.0.2",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": [
+        "Inspect element on Android with a live DOM tree, styles, computed CSS and box model",
+        "JavaScript console with errors, warnings and stack traces",
+        "Network request viewer with headers, payload, JSON viewer and HAR export",
+        "Core Web Vitals: LCP, INP, CLS, FCP, TTFB, TBT",
+        "SEO, accessibility and best-practice audits",
+        "Mock API responses, delays and errors without a proxy",
+        "Cookies, local storage, IndexedDB, cache storage and service workers",
+        "View page source, sources search and snippets",
+        "Device emulation, user agent switcher and desktop mode",
+        "Docked, floating or full-screen DevTools; light and dark themes"
+      ],
+      "isAccessibleForFree": true,
+      "privacyPolicy": "https://arulg.tech/webnix/privacy.html",
+      "author": { "@type": "Organization", "name": "ARUL LOGIC", "url": "https://arulg.tech/" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I inspect element on Android without a computer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Install Webnix, open the website, and tap the DevTools button. The Elements panel shows the live DOM tree. Tap the picker icon, then tap anything on the page to see its HTML, CSS styles and box model. You can edit HTML and CSS live. No PC, cable or USB debugging is needed." } },
+        { "@type": "Question", "name": "How can I see the JavaScript console on my phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Webnix, open DevTools and choose Console. You'll see every console.log, warning and error with its source file and stack trace, and you can type JavaScript to run on the page." } },
+        { "@type": "Question", "name": "How do I view network requests or export a HAR file on Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open DevTools › Network in Webnix and reload the page. Each request shows status, size, timing and a waterfall. Tap one to see headers, payload and the response in a JSON viewer. Use the export button to save a HAR file." } },
+        { "@type": "Question", "name": "How do I view the page source of a website on mobile?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Webnix, open the menu and choose View page source, or use DevTools › Sources to browse every script and stylesheet with pretty print and search." } },
+        { "@type": "Question", "name": "Can I check Core Web Vitals on a phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Webnix's Performance panel measures LCP, INP, CLS, FCP, TTFB and TBT on your real device, plus FPS, memory and navigation timing, and exports the report as HTML or JSON." } },
+        { "@type": "Question", "name": "How do I mock an API response on Android without a proxy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use the Overrides panel in Webnix. Create a rule to return a mock response, replace a JS or CSS file, redirect or block a URL, add a delay, or simulate an error. It runs inside the app's browser, so no proxy, VPN or certificate is required." } },
+        { "@type": "Question", "name": "Can I open the desktop version of a website on Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Turn on Desktop site in Webnix's menu. The page loads with a desktop user agent and a 1280-pixel viewport, and you can pinch to zoom out. Device emulation also lets you pick other user agents and viewport widths." } },
+        { "@type": "Question", "name": "Is Webnix free and private?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Webnix is free, with no account, ads, analytics or trackers. History, bookmarks and settings are stored only on your device." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to debug a website on an Android phone",
+      "totalTime": "PT1M",
+      "step": [
+        { "@type": "HowToStep", "name": "Open the site", "text": "Install Webnix from Google Play and open the website you want to debug." },
+        { "@type": "HowToStep", "name": "Open DevTools", "text": "Tap the DevTools button. The panel docks at the bottom; drag it to resize, or switch to floating or full screen." },
+        { "@type": "HowToStep", "name": "Inspect and debug", "text": "Use Elements to inspect HTML and CSS, Console for errors, Network for requests, Performance for Core Web Vitals and Audit for SEO and accessibility." },
+        { "@type": "HowToStep", "name": "Share the result", "text": "Export a HAR file, an audit report, or a one-tap bug report with a screenshot and logs." }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#1f1f1f;--mu:#5f6368;--card:#f8f9fa;--line:#e3e5e8;--pr:#1a73e8;--hero1:#16264A;--hero2:#0A1224}
+@media (prefers-color-scheme:dark){:root{--bg:#131416;--fg:#e3e3e3;--mu:#a8abb0;--card:#1b1c1f;--line:#2f3135;--pr:#8ab4f8}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--pr)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.hero{background:radial-gradient(70% 90% at 90% 0%,#24427E 0%,rgba(36,66,126,0) 60%),linear-gradient(150deg,var(--hero1),var(--hero2));color:#fff;padding:56px 0 64px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px}
+.brand img{width:44px;height:44px;border-radius:12px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:28px 0 14px;font-weight:800}
+h1 span{background:linear-gradient(90deg,#8AB4F8,#4C9AFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2.4vw,20px);color:#B8C3D9;max-width:640px;margin:0}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:#fff;color:#0A1224;font-weight:600;padding:14px 22px;border-radius:999px;text-decoration:none}
+.note{color:#8C98B3;font-size:14px;margin-top:12px}
+.shots{display:flex;gap:16px;overflow-x:auto;padding:32px 0 8px;scroll-snap-type:x mandatory}
+.shots img{width:220px;flex:none;border-radius:16px;scroll-snap-align:start;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(24px,4vw,32px);letter-spacing:-.01em;margin:0 0 8px}
+.sub{color:var(--mu);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--mu);font-size:15px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+details p{color:var(--mu);margin:10px 0 0}
+ol.steps{padding-left:20px}ol.steps li{margin-bottom:8px}
+footer{padding:32px 0;color:var(--mu);font-size:14px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><img src="icon-512.png" alt="Webnix logo" width="44" height="44">Webnix</div>
+    <h1>Web DevTools for Android.<br><span>Inspect any website on your phone.</span></h1>
+    <p class="lead">Webnix is a free Android browser with full web developer tools built in: inspect element, JavaScript console, network requests, Core Web Vitals, SEO audits and API mocking. No computer, cable or USB debugging.</p>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.arullogic.webnix">▶ Get it on Google Play</a>
+    <p class="note">Free · No account · No ads · No tracking</p>
+    <div class="shots">
+      <img src="img/01.jpg" alt="Inspect element on Android: live DOM tree and on-page highlight" loading="lazy">
+      <img src="img/02.jpg" alt="JavaScript console on a phone showing errors and warnings" loading="lazy">
+      <img src="img/03.jpg" alt="Network request list with waterfall on Android" loading="lazy">
+      <img src="img/04.jpg" alt="API response in a JSON viewer" loading="lazy">
+      <img src="img/05.jpg" alt="Core Web Vitals measured on a phone" loading="lazy">
+      <img src="img/06.jpg" alt="SEO and accessibility audit scores" loading="lazy">
+      <img src="img/07.jpg" alt="Mock API responses without a proxy" loading="lazy">
+      <img src="img/08.jpg" alt="Floating DevTools window over a web page" loading="lazy">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>What is Webnix?</h2>
+    <p class="sub">Webnix is a web browser for Android with professional developer tools, similar to the DevTools in desktop browsers but designed for a phone screen. Web developers, QA testers and SEO specialists use it to debug and audit websites directly on a real mobile device.</p>
+    <div class="grid">
+      <div class="card"><h3>Elements</h3><p>Inspect element on mobile: live DOM tree, tap-to-inspect, styles, computed CSS, box model and accessibility. Edit HTML and CSS live.</p></div>
+      <div class="card"><h3>Console</h3><p>Every log, warning and error with source and stack trace. Run JavaScript on the page with history and <code>$0</code>.</p></div>
+      <div class="card"><h3>Network</h3><p>Status, size, timing and waterfall for each request. Headers, payload, JSON viewer, image preview and HAR export.</p></div>
+      <div class="card"><h3>Performance</h3><p>Core Web Vitals (LCP, INP, CLS, FCP, TTFB, TBT), FPS, memory and navigation timing. Export as HTML or JSON.</p></div>
+      <div class="card"><h3>Audit</h3><p>SEO, accessibility, performance, security and best-practice checks with evidence, plus technology detection.</p></div>
+      <div class="card"><h3>Overrides</h3><p>Mock API responses, replace files, redirect or block URLs, add delays and simulate errors, with no proxy.</p></div>
+      <div class="card"><h3>Application &amp; Sources</h3><p>Cookies, local and session storage, IndexedDB, cache storage, service workers, manifest, page source and snippets.</p></div>
+      <div class="card"><h3>Built for phones</h3><p>Docked, floating or full-screen DevTools, device emulation, desktop mode, light and dark themes, one-tap bug reports.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to debug a website on an Android phone</h2>
+    <ol class="steps">
+      <li>Install Webnix from Google Play and open the website.</li>
+      <li>Tap the <strong>DevTools</strong> button. Drag the panel to resize it, or switch to floating or full screen.</li>
+      <li>Use <strong>Elements</strong> for HTML and CSS, <strong>Console</strong> for errors, <strong>Network</strong> for requests, <strong>Performance</strong> for Core Web Vitals and <strong>Audit</strong> for SEO and accessibility.</li>
+      <li>Share a HAR file, an audit report, or a one-tap bug report with a screenshot and logs.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Frequently asked questions</h2>
+    <p class="sub">Quick answers about debugging websites on mobile.</p>
+    <details open><summary>How do I inspect element on Android without a computer?</summary><p>Install Webnix, open the website, and tap the DevTools button. The Elements panel shows the live DOM tree. Tap the picker icon, then tap anything on the page to see its HTML, CSS styles and box model. You can edit HTML and CSS live. No PC, cable or USB debugging is needed.</p></details>
+    <details><summary>How can I see the JavaScript console on my phone?</summary><p>In Webnix, open DevTools and choose Console. You'll see every console.log, warning and error with its source file and stack trace, and you can type JavaScript to run on the page.</p></details>
+    <details><summary>How do I view network requests or export a HAR file on Android?</summary><p>Open DevTools › Network in Webnix and reload the page. Each request shows status, size, timing and a waterfall. Tap one to see headers, payload and the response in a JSON viewer. Use the export button to save a HAR file.</p></details>
+    <details><summary>How do I view the page source of a website on mobile?</summary><p>In Webnix, open the menu and choose View page source, or use DevTools › Sources to browse every script and stylesheet with pretty print and search.</p></details>
+    <details><summary>Can I check Core Web Vitals on a phone?</summary><p>Yes. Webnix's Performance panel measures LCP, INP, CLS, FCP, TTFB and TBT on your real device, plus FPS, memory and navigation timing, and exports the report as HTML or JSON.</p></details>
+    <details><summary>How do I mock an API response on Android without a proxy?</summary><p>Use the Overrides panel in Webnix. Create a rule to return a mock response, replace a JS or CSS file, redirect or block a URL, add a delay, or simulate an error. It runs inside the app's browser, so no proxy, VPN or certificate is required.</p></details>
+    <details><summary>Can I open the desktop version of a website on Android?</summary><p>Yes. Turn on Desktop site in Webnix's menu. The page loads with a desktop user agent and a 1280-pixel viewport, and you can pinch to zoom out. Device emulation also lets you pick other user agents and viewport widths.</p></details>
+    <details><summary>Is Webnix free and private?</summary><p>Webnix is free, with no account, ads, analytics or trackers. History, bookmarks and settings are stored only on your device.</p></details>
+  </section>
+</main>
+
+<footer class="wrap">
+  © 2026 Webnix by <a href="../">ARUL LOGIC</a> · <a href="privacy.html">Privacy policy</a> · <a href="mailto:mailtogarul@gmail.com">mailtogarul@gmail.com</a>
+</footer>
+</body>
+</html>
