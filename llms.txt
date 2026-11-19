@@ -5,7 +5,7 @@
 All apps are on Google Play: https://play.google.com/store/apps/dev?id=7152012900864371035
 
 ## Apps
-- [Webnix: Web DevTools Browser](https://arulg.tech/webnix/): an Android browser with full web developer tools (inspect element, JavaScript console, network requests, Core Web Vitals, SEO audits, API mocking). No PC needed. More detail: https://arulg.tech/webnix/llms.txt
+- [Webnix: Web DevTools Browser](https://arulg2005.github.io/arul_logic/webnix/): an Android browser with full web developer tools (inspect element, JavaScript console, network requests, Core Web Vitals, SEO audits, API mocking). No PC needed. More detail: https://arulg2005.github.io/arul_logic/webnix/llms.txt
 - [Mom Says: Reminder & Focus](https://play.google.com/store/apps/details?id=com.logicfirst.momsays): daily reminders, streaks and a gentle app blocker with a mother's voice, in English, Tamil, Hindi, Telugu, Malayalam and Kannada.
 - [Numerix: Math Challenges](https://play.google.com/store/apps/details?id=com.logicfirst.numerix): fun offline math challenges to train your brain.
 - [Agenda: To-Do & Task Manager](https://play.google.com/store/apps/details?id=com.logicfirst.agenda): a fast, distraction-free task manager.
@@ -18,4 +18,4 @@ All apps are on Google Play: https://play.google.com/store/apps/dev?id=715201290
 
 ## Contact
 - Email: mailtogarul@gmail.com
-- Website: https://arulg.tech/
+- Website: https://arulg2005.github.io/arul_logic/

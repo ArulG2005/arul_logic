@@ -25,6 +25,6 @@ Webnix is made for web developers, front-end engineers, QA testers, SEO speciali
 - How to open the desktop version of a website on Android
 
 ## Links
-- Website: https://arulg.tech/webnix/
+- Website: https://arulg2005.github.io/arul_logic/webnix/
 - Google Play: https://play.google.com/store/apps/details?id=com.arullogic.webnix
-- Privacy policy: https://arulg.tech/webnix/privacy.html
+- Privacy policy: https://arulg2005.github.io/arul_logic/webnix/privacy.html

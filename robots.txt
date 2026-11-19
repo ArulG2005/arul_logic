@@ -23,4 +23,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://arulg.tech/sitemap.xml
+Sitemap: https://arulg2005.github.io/arul_logic/sitemap.xml
