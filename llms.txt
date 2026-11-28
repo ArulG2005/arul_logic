@@ -14,6 +14,7 @@ All apps are on Google Play: https://play.google.com/store/apps/dev?id=715201290
 - [Math Talk](https://play.google.com/store/apps/details?id=com.logicfirst.mathtalk): a talking calculator.
 - [FitCalc](https://play.google.com/store/apps/details?id=com.logicfirst.fitcalc): health calculators such as BMI.
 - [LockMate](https://play.google.com/store/apps/details?id=com.logicfirst.lockmate): lock apps to keep them private.
+- [Sawcut Construction Calculator](https://play.google.com/store/apps/details?id=com.arullogic.sawcut): exact feet-inch-fraction calculator with stairs, rafters, concrete, bricks and quotes; offline, no ads. Privacy: https://arulg2005.github.io/arul_logic/sawcut/privacy.html
 - [Torchly](https://play.google.com/store/apps/details?id=com.logicfirst.torchly): a simple flashlight.
 
 ## Contact
